@@ -1,30 +1,39 @@
-// Solicita ao usuário para inserir um número de 1 a 7
-let numeroDia = parseInt(prompt("Digite um número de 1 a 7:"));
+// Função para verificar se um número é primo
+function verificarPrimo(numero) {
+    if (numero <= 1) {
+      return false; // 0 e 1 não são primos
+    }
+  
+    for (let i = 2; i <= Math.sqrt(numero); i++) {
+      if (numero % i === 0) {
+        return false; // Se for divisível por algum número, não é primo
+      }
+    }
+  
+    return true; // Se não foi divisível por nenhum número, é primo
+  }
+  
+  // Solicita ao usuário um número
+  const numeroUsuario = parseInt(prompt("Digite um número:"));
+  
+  // Verifica se o número é primo
+  if (!isNaN(numeroUsuario)) {
+    let ehPrimo = true
 
-// Usa switch para imprimir o nome do dia correspondente ao número inserido
-switch (numeroDia) {
-    case 1:
-        console.log("Domingo");
-        break;
-    case 2:
-        console.log("Segunda-feira");
-        break;
-    case 3:
-        console.log("Terça-feira");
-        break;
-    case 4:
-        console.log("Quarta-feira");
-        break;
-    case 5:
-        console.log("Quinta-feira");
-        break;
-    case 6:
-        console.log("Sexta-feira");
-        break;
-    case 7:
-        console.log("Sábado");
-        break;
-    default:
-        console.log("Número inválido. Insira um número de 1 a 7.");
-        break;
-}
+    if (numero <= 1) {
+        ehPrimo = false
+    }
+
+    let i = numeroUsuario;
+
+    while (i <= 2) {
+    if (numero % i === 0) {
+        ehPrimo = false // Se for divisível por algum número, não é primo
+    }
+    i--;
+  }
+    
+  } else {
+    console.log("Por favor, insira um número válido.");
+  }
+  

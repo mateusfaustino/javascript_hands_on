@@ -1,45 +1,29 @@
-// Crie um programa que solicite ao usuário uma senha. Valide a senha de acordo com as seguintes regras:
+// Inicializa a variável para armazenar a soma das idades
+let somaIdades = 0;
 
-// Pelo menos 8 caracteres de comprimento.
-// Deve conter pelo menos uma letra maiúscula e uma letra minúscula.
-// Deve incluir pelo menos um número.
-// Pode conter caracteres especiais, como @, #, $, etc.
+// Solicita a idade de 5 pessoas
+for (let i = 1; i <= 5; i++) {
+  const idade = parseInt(prompt(`Digite a idade da pessoa ${i}:`));
 
-function validarSenha(senha) {
-    // Verifica se a senha tem pelo menos 8 caracteres de comprimento
-    if (senha.length < 8) {
-        return false;
-    }
-
-    // Verifica se a senha contém pelo menos uma letra maiúscula e uma letra minúscula
-    let possuiMaiuscula = /[A-Z]/.test(senha);
-    let possuiMinuscula = /[a-z]/.test(senha);
-    if (!possuiMaiuscula || !possuiMinuscula) {
-        return false;
-    }
-
-    // Verifica se a senha inclui pelo menos um número
-    let possuiNumero = /[0-9]/.test(senha);
-    if (!possuiNumero) {
-        return false;
-    }
-
-    // Verifica se a senha contém caracteres especiais
-    let possuiCaracterEspecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(senha);
-    if (!possuiCaracterEspecial) {
-        return false;
-    }
-
-    // Se passar por todas as verificações, a senha é válida
-    return true;
+  // Verifica se a entrada é um número
+  if (!isNaN(idade)) {
+    somaIdades += idade;
+  } else {
+    console.log("Por favor, insira uma idade válida.");
+    i--; // Decrementa i para solicitar novamente a idade da mesma pessoa
+  }
 }
 
-// Solicita ao usuário para inserir uma senha
-let senhaUsuario = prompt("Digite sua senha:");
+// Calcula a média das idades
+const mediaIdades = somaIdades / 5;
 
-// Valida a senha inserida pelo usuário
-if (validarSenha(senhaUsuario)) {
-    console.log("Senha válida.");
+// Determina a faixa etária da turma com base na média
+if (mediaIdades >= 0 && mediaIdades <= 25) {
+  console.log(`A turma é jovem, com média de idade ${mediaIdades.toFixed(2)}`);
+} else if (mediaIdades >= 26 && mediaIdades <= 60) {
+  console.log(`A turma é adulta, com média de idade ${mediaIdades.toFixed(2)}`);
+} else if (mediaIdades > 60) {
+  console.log(`A turma é idosa, com média de idade ${mediaIdades.toFixed(2)}`);
 } else {
-    console.log("Senha inválida. Certifique-se de que atenda aos critérios.");
+  console.log("Não foi possível determinar a faixa etária da turma.");
 }

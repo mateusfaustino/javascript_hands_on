@@ -1,25 +1,17 @@
-// Peça ao usuário para inserir os comprimentos dos lados de um 
-// triângulo e escreva um programa que determine se o triângulo é equilátero, isósceles ou escaleno.
-
-// Solicita ao usuário para inserir os comprimentos dos lados do triângulo
-let lado1 = parseFloat(prompt("Digite o comprimento do lado 1:"));
-let lado2 = parseFloat(prompt("Digite o comprimento do lado 2:"));
-let lado3 = parseFloat(prompt("Digite o comprimento do lado 3:"));
-
-// Verifica se é um triângulo válido
-if (lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1) {
-    // Verifica se é um triângulo equilátero (três lados iguais)
-    if (lado1 === lado2 && lado2 === lado3) {
-        console.log("É um triângulo equilátero.");
-    }
-    // Verifica se é um triângulo isósceles (dois lados iguais)
-    else if (lado1 === lado2 || lado1 === lado3 || lado2 === lado3) {
-        console.log("É um triângulo isósceles.");
-    }
-    // Se não for equilátero nem isósceles, é um triângulo escaleno
+while (true) {
+    // Solicita ao usuário o nome
+    const nomeUsuario = prompt("Digite seu nome de usuário:");
+  
+    // Solicita ao usuário a senha
+    const senhaUsuario = prompt("Digite sua senha:");
+  
+    // // Verifica se a senha é igual ao nome do usuário
+    if (nomeUsuario === senhaUsuario) {
+      console.log("Erro: A senha não pode ser igual ao nome de usuário. Tente novamente.");
+    } 
     else {
-        console.log("É um triângulo escaleno.");
+      console.log("Login bem-sucedido!");
+      break;  // Sai do loop quando as informações são válidas
     }
-} else {
-    console.log("Não é um triângulo válido.");
 }
+  
