@@ -1,0 +1,1 @@
+Crie uma função chamada operacoesMatematicas que recebe dois números e uma função de callback como argumentos. A função deve aplicar a função de callback aos dois números e retornar o resultado.
